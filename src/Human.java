@@ -5,7 +5,7 @@ public class Human {
     int yearOfBirth;
     String town;
     String job;
-    public Human(int yearOfBirth) {
+    public Human(int yearOfBirth) {//Как насчет такой реализации дефолтных значений?
         this("Информация не указана", yearOfBirth, "Информация не указана", "Информация не указана");
     }
     public Human(String name, int yearOfBirth, String town, String job) {
