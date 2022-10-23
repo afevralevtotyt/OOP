@@ -1,26 +1,84 @@
+import java.time.LocalDate;
 import java.time.Year;
 
 public class Human {
-    String name;
-    int yearOfBirth;
-    String town;
-    String job;
-    public Human(int yearOfBirth) {//Как насчет такой реализации дефолтных значений?
-        this("Информация не указана", yearOfBirth, "Информация не указана", "Информация не указана");
-    }
-    public Human(String name, int yearOfBirth, String town, String job) {
-        this.name = name;
-        if (yearOfBirth>0){
-        this.yearOfBirth = yearOfBirth;}
-        else {
-            this.yearOfBirth =0;
+    private String name;
+    private int yearOfBirth;
+    private String town;
+    private String job;
+
+    public Human(String name, int age, String town, String job) {
+        if (name != null && !name.isEmpty() && !name.isBlank()) {
+            this.name = name;
+        } else {
+            this.name = "Информация не указана";
         }
-        this.town = town;
-        this.job=job;
+        if (age > 0) {
+            this.yearOfBirth = LocalDate.now().getYear() - age;
+        } else {
+            this.yearOfBirth = LocalDate.now().getYear();
+        }
+        if (town != null && !town.isEmpty() && !town.isBlank()) {
+            this.town = town;
+        } else {
+            this.town = "Информация не указана";
+        }
+        if (job != null && !job.isEmpty() && !job.isBlank()) {
+            this.job = job;
+        } else {
+            this.job = "Информация не указана";
+        }
     }
 
-    void printHello(){
-        System.out.println("Привет! Меня зовут "+ name +". Я из города "+ town + ". Я родился в "+yearOfBirth+ " году. Я работаю на должности "+ job+ ". Будем знакомы!");
+    void printHello() {
+        System.out.println("Привет! Меня зовут " + name + ". Я из города " + town + ". Я родился в " + yearOfBirth + " году. Я работаю на должности " + job + ". Будем знакомы!");
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        if (name != null && !name.isEmpty() && !name.isBlank()) {
+            this.name = name;
+        } else {
+            this.name = "Информация не указана";
+        }
+    }
+
+    public int getYearOfBirth() {
+        return yearOfBirth;
+    }
+
+    public String getTown() {
+        return town;
+    }
+
+    public void setTown(String town) {
+        if (town != null && !town.isEmpty() && !town.isBlank()) {
+            this.town = town;
+        } else {
+            this.town = "Информация не указана";
+        }
+    }
+
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        if (job != null && !job.isEmpty() && !job.isBlank()) {
+            this.job = job;
+        } else {
+            this.job = "Информация не указана";
+        }
+    }
+
+    public void setAge(int age) {
+        if (age > 0) {
+            this.yearOfBirth = LocalDate.now().getYear() - age;
+        } else {
+            this.yearOfBirth = LocalDate.now().getYear();
+        }
     }
 }
